@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome file</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="react-native-tododomi-mobile-apps">React Native tododomi mobile apps</h1>
+<h2 id="apps">Apps</h2>
+<h3 id="customer">Customer</h3>
+<p>This is the app for the final consumer, the biggest and most complex one.<br>
+The core flow of the service starts in this application. A user can signup, login, search for stores and items and add them to a cart. Finally it can make a pruchase selecting a payment method, credit cards are suported.</p>
+<p>The app has many features including but not limited to:</p>
+<ul>
+<li>Select replacement items in case stock problems.</li>
+<li>Add special instructions for each product that shopper can read.</li>
+<li>Add special instrutions for the delivery.</li>
+<li>Customize some products that support it. For example adding drinks and side dishes.</li>
+<li>Filter and sorting shops.</li>
+<li>Schedule future orders.</li>
+<li>Manage delivery addresses.</li>
+<li>Manage payment methods.</li>
+<li>Rate shops and past orders.</li>
+<li>Give tips.</li>
+<li>View past orders.</li>
+</ul>
+<h3 id="shopper">Shopper</h3>
+<p>The shopper is one of the apps for tododomi workers. Shoppers are the first to handle user orders. They are suposed to be in shops and buy items for each user purchase.  The core flow of the shopper app is to accept an order, buy the items and mark a purchase as finished adn ready to be picked up.</p>
+<p>Some extra features:</p>
+<ul>
+<li>Change items for the preselected replacements.</li>
+<li>Ability to call the user.</li>
+<li>Change final order price and add a reason and a photo of the reciept.</li>
+</ul>
+<h3 id="restaurant">Restaurant</h3>
+<p>Similarly to the shopper, the restaurant manager accepts orders, selects a preparation time and finally marks them as ready to deliver.</p>
+<p>Features:</p>
+<ul>
+<li>See selected options for each meal.</li>
+<li>Close the reception of new orders.</li>
+<li>Reject an order.</li>
+</ul>
+<h3 id="delivery">Delivery</h3>
+<p>The delivery app is the last one in the chain. Deliverys pick up orders from restaurants/shops and deliver them to final customers. They charge the user in case the payment method is cash.</p>
+<p>Features:</p>
+<ul>
+<li>See optimzed delivery routes</li>
+<li>Open google maps with marked destinations</li>
+<li>Mark orders as not delivered</li>
+<li>Call the user</li>
+</ul>
+<h2 id="react-redux">React-Redux</h2>
+<p>The four applications use:</p>
+<ul>
+<li><code>react-native</code> and <code>redux</code> as the state management solution.</li>
+<li><code>react-native-navigation</code> as the navigation library.</li>
+<li><code>redux-thunks</code> to handle async tasks on redux actions.</li>
+</ul>
+<p>All the apps use <code>immutable</code> as a way of ensuring immutability on redux reducers, with the exception of the restaurant app that uses <code>redux-starter-kit</code> which includes <code>immer</code> as the immutability library.</p>
+<p>All the backend endpoints that the app uses are delared under <code>src/api</code>.<br>
+This services are then used in thunks under <code>src/actions</code></p>
+<p>The 3 apps using <code>immutable</code> make extensive use of selectors (<code>src/selectors</code>) in order to avoid recopmutation of the expensive <code>toJS</code> method of <code>immutable</code> objects.</p>
+<p><code>react-native-navigation</code> screens are declared in <code>src/screens</code><br>
+There is a container (<code>src/containers</code>) for each of these screens.</p>
+<p>Sessions are managed by <code>redux-react-native-session</code> and persisted to local-storage. The authentication method is token based and is addapted to the default method in the ruby gem <code>devise-token-auth</code></p>
+</div>
+</body>
+
+</html>
+
